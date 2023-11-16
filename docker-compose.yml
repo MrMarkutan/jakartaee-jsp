@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  payara-server:
+    image: payara/server-full
+    container_name: payaraTest
+    ports:
+      - "8008:8080"
+      - "8018:8181"
+      - "4848:4848"
+
+    volumes:
+      - "./target:/opt/payara/deployments"
+    networks:
+      - mysql-network
+
+
+volumes:
+  mysql-data:
+
+networks:
+  mysql-network:
